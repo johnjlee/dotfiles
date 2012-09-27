@@ -102,3 +102,5 @@ alias date="date +%c"
 export EDITOR=emacs
 export HISTFILESIZE=1000000
 export HISTSIZE=10000
+export HISTIGNORE="&:ls:exit"
+export PROMPT_COMMAND="history -a"
