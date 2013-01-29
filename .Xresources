@@ -1,2 +1,4 @@
 XTerm*altSendsEscape: true
+XTerm*metaSendsEscape: true
 XTerm*altIsNotMeta: true
+XTerm*eightBitInput: true
