@@ -29,7 +29,7 @@ Key p A CM Exec exec google-chrome
 
 # Command keys
 Key t A SC Exec exec xterm
-Key l A SC Exec xscreensaver-command -lock
+Key l A SC Exec gnome-screensaver-command -l
 Key w WTFS SC Close
 Key r WTFS SC Stick
 Key Tab A M Focus-Raise
@@ -38,6 +38,8 @@ Key Tab A M Focus-Raise
 Key equal WTFS SC MyMaximize
 Key minus WTFS SC MyMaximizeVert
 Key 0 WTFS SC MyMaximizeHoriz
+Key 9 WTFS SC MyMaximizeChrome
+Key 8 WTFS SC MyMaximizeEmacs
 
 # Key bindings for switching desks
 # SwitchPage is a function I defined which switches the page and then
@@ -61,7 +63,7 @@ Key v WTFS SC Lower-Right2
 Key j WTFS SC Upper-Left1
 Key k WTFS SC Upper-Right2
 Key n WTFS SC Lower-Left1
-Key m WTFS  SC Lower-Right2
+Key m WTFS SC Lower-Right2
 
 # Mouse bindings
 Mouse 1 WTFS M Raise-Move
@@ -125,6 +127,17 @@ DestroyFunc MyMaximize
 AddToFunc MyMaximize
 + I Maximize
 #+ I WarpToWindow 100 100
+
+DestroyFunc MyMaximizeChrome
+AddToFunc MyMaximizeChrome
++ I Maximize 1114p 1080p
+#+ I WarpToWindow 100 100
+
+DestroyFunc MyMaximizeEmacs
+AddToFunc MyMaximizeEmacs
++ I Maximize 1642p 1080p
+#+ I WarpToWindow 100 100
+
 
 DestroyFunc MyMaximizeHoriz
 AddToFunc MyMaximizeHoriz
