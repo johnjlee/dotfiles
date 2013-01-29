@@ -1,0 +1,7 @@
+Notes for setting up a new 12.10 machine
+
+Setting GTK theme to Emacs:
+First, edit the files in /usr/share/themes/Emacs as needed. Then:
+
+$ gconftool-2 --type=string --set /desktop/gnome/interface/gtk_key_theme Emacs
+$ gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"

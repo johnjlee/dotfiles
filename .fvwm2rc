@@ -1,0 +1,150 @@
+DeskTopSize 10x1
+
+
+# Style stuff
+Style "*" MinOverlapPercentPlacement
+Style "*" BorderWidth 1, HandleWidth 1
+Style "*" NoTitle, SloppyFocus, GrabFocus
+Style "*" BackColor #333333
+Style "*" HilightBack #FF0000
+Style "*" StartsOnScreen
+
+# Get rid of the root menu
+Mouse 0 R A None
+
+# Raise iconified windows
+Mouse  1 I N Iconify off
+
+# Disable side-edge scrolling
+EdgeThickness 0
+
+# Opaque window moving
+OpaqueMoveSize unlimited
+
+# ignore the num lock key
+IgnoreModifiers 2
+
+# laucher keybindings
+Key p A CM Exec exec google-chrome
+
+# Command keys
+Key t A SC Exec exec xterm
+Key l A SC Exec xscreensaver-command -lock
+Key w WTFS SC Close
+Key r WTFS SC Stick
+Key Tab A M Focus-Raise
+
+# Maximize windows
+Key equal WTFS SC MyMaximize
+Key minus WTFS SC MyMaximizeVert
+Key 0 WTFS SC MyMaximizeHoriz
+
+# Key bindings for switching desks
+# SwitchPage is a function I defined which switches the page and then
+# raises all sticky windows
+Key 1 A C SwitchPage 0 0
+Key 2 A C SwitchPage 2 0
+Key 3 A C SwitchPage 4 0
+Key 4 A C SwitchPage 6 0
+Key 5 A C SwitchPage 8 0
+Key 1 A CS SwitchPage 0 0
+Key 2 A CS SwitchPage 2 0
+Key 3 A CS SwitchPage 4 0
+Key 4 A CS SwitchPage 6 0
+Key 5 A CS SwitchPage 8 0
+
+# Key bindings for moving windows to the corners
+Key d WTFS SC Upper-Left1
+Key f WTFS SC Upper-Right2
+Key c WTFS SC Lower-Left1
+Key v WTFS SC Lower-Right2
+Key j WTFS SC Upper-Left1
+Key k WTFS SC Upper-Right2
+Key n WTFS SC Lower-Left1
+Key m WTFS  SC Lower-Right2
+
+# Mouse bindings
+Mouse 1 WTFS M Raise-Move
+Mouse 3 WTFS M Resize
+
+# Functions I used
+DestroyFunc Lower-Right1
+AddToFunc Lower-Right1
++ I Raise
++ I AnimatedMove -1280p -0p Warp
++ I WarpToWindow 100 100
+
+DestroyFunc Lower-Left1
+AddToFunc Lower-Left1
++ I Raise
++ I AnimatedMove 0 -0p Warp
++ I WarpToWindow 100 100
+
+DestroyFunc Upper-Right1
+AddToFunc Upper-Right1
++ I Raise
++ I AnimatedMove -1280p 0p Warp
++ I WarpToWindow 100 100
+
+DestroyFunc Upper-Left1
+AddToFunc Upper-Left1
++ I Raise
++ I AnimatedMove 0 0 Warp
++ I WarpToWindow 100 100
+
+DestroyFunc Lower-Right2
+AddToFunc Lower-Right2
++ I Raise
++ I AnimatedMove -0 -0 Warp
++ I WarpToWindow 100 100 Warp
+
+DestroyFunc Lower-Left2
+AddToFunc Lower-Left2
++ I Raise
++ I AnimatedMove +1280p -0p Warp
++ I WarpToWindow 100 100
+
+DestroyFunc Upper-Right2
+AddToFunc Upper-Right2
++ I Raise
++ I AnimatedMove -0 0 Warp
++ I WarpToWindow 100 100
+
+DestroyFunc Upper-Left2
+AddToFunc Upper-Left2
++ I Raise
++ I AnimatedMove +1280p +0p Warp
++ I WarpToWindow 100 100
+
+DestroyFunc Raise-Move
+AddToFunc Raise-Move
++ I Raise
++ M Move Warp
+
+DestroyFunc MyMaximize
+AddToFunc MyMaximize
++ I Maximize
+#+ I WarpToWindow 100 100
+
+DestroyFunc MyMaximizeHoriz
+AddToFunc MyMaximizeHoriz
++ I Maximize 100 0
++ I WarpToWindow 100 100
+
+DestroyFunc MyMaximizeVert
+AddToFunc MyMaximizeVert
++ I Maximize 0 100
++ I WarpToWindow 100 100
+
+DestroyFunc SwitchPage
+AddToFunc SwitchPage
++ I GotoPage $0 $1
++ I All (Sticky) Raise
+
+DestroyFunc Focus-Raise
+AddToFunc Focus-Raise
++ I Next (AcceptsFocus,CurrentGlobalPage) Raise
++ I Next (AcceptsFocus,CurrentGlobalPage) WarpToWindow 100 100
++ I Next (AcceptsFocus,CurrentGlobalPage) Focus
+
+#*FvwmButtons: (Swallow XClock 'Exec xclock -geometry -3000-3000 &')
