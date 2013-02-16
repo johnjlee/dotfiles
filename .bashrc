@@ -99,6 +99,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 alias date="date +%c"
+alias sl="ls"
+alias lsl="ls"
 export EDITOR=emacs
 export HISTFILESIZE=1000000
 export HISTSIZE=10000
