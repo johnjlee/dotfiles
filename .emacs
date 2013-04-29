@@ -92,5 +92,6 @@
 (global-set-key [\M-s] 'execute-extended-command)
 (global-set-key "\C-cw" 'delete-trailing-whitespace)
 
+(global-set-key "\C-c\C-r" 'replace-string)
 
 (add-to-list 'Info-default-directory-list "/usr/share/info")
